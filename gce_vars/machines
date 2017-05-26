@@ -1,0 +1,4 @@
+---
+# Common Compute Engine instance variables
+machine_type: f1-micro
+image: centos-6

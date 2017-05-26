@@ -1,0 +1,5 @@
+---
+# Variables defined for asia-east1-b
+names_zoneb: myinstance2,myinstance4
+zoneb: asia-east1-b
+lb_membersa: asia-east1-b/myinstance2,asia-east1-b/myinstance4
