@@ -1,0 +1,10 @@
+---
+# Google Compute Engine required authentication global variables
+# (Replace 'YOUR_PROJECT_ID' with the Project ID used in creating your GCP project.)
+project_id: mystical-ace-168107
+service_account_email: ansible@mystical-ace-168107.iam.gserviceaccount.com
+credentials_file: /home/mod_admin/ansible/gce-build/inventory/ansible.json
+
+# gce_service_account_email_address = gcphiga@mystical-ace-168107.iam.gserviceaccount.com
+# gce_service_account_pem_file_path = gcphiga.pem
+# gce_project_id = mystical-ace-168107

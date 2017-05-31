@@ -1,5 +1,6 @@
 ---
 # compute-video-demo-ansible
 - include: gce-instances.yml
-- include: web.yml
+- include: td-agent.yml
 - include: gce-network.yml
+#- include: web.yml

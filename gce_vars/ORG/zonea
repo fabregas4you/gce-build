@@ -1,0 +1,5 @@
+---
+# Variables defined for asia-east1-a
+names_zonea: tdinstance1,tdinstance3
+zonea: asia-east1-a
+lb_membersa: asia-east1-a/tdinstance1,asia-east1-a/tdinstance3

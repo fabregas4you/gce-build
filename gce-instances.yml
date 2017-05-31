@@ -37,7 +37,7 @@
       add_host: hostname={{ item.public_ip }} groupname=gce_instances_ips
       with_items: "{{ gcea.instance_data }}"
     - name: Wait for SSH for instances in second zone
-      wait_for: delay=1 host={{ item.public_ip }} port=22 state=started timeout=30
+      wait_for: delay=5 host={{ item.public_ip }} port=22 state=started timeout=30
       with_items: "{{ gceb.instance_data }}"
     - name: Save host data for second zone
       add_host: hostname={{ item.public_ip }} groupname=gce_instances_ips

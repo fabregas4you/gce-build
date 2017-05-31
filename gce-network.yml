@@ -7,11 +7,11 @@
     - gce_vars/auth
     - gce_vars/lb
   tasks:
-    - name: Allow HTTP traffic
+    - name: Allow td-agent incoming traffic
       gce_net:
-        fwname: all-http
+        fwname: all-td-agent
         name: default
-        allowed: tcp:80
+        allowed: tcp:16000
         project_id: "{{ project_id }}"
         credentials_file: "{{ credentials_file }}"
         service_account_email: "{{ service_account_email }}"

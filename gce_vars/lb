@@ -1,4 +1,4 @@
 ---
 # Variables defined for load-balancer
 region: asia-east1
-members: asia-east1-a/myinstance1,asia-east1-a/myinstance3,asia-east1-b/myinstance2,asia-east1-b/myinstance4
+members: asia-east1-a/tdinstance1,asia-east1-b/tdinstance2

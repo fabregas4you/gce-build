@@ -1,0 +1,47 @@
+---
+- name: rpm repo
+  copy: src=repo dest=/etc/yum.repos.d/td.repo
+
+- name: install td-agent
+  yum: name=td-agent state=latest
+
+- name: service td-agent
+  service: name=td-agent state=started enabled=yes
+
+#- name: Check plugins
+#  command: "td-agent-gem list --local {{ item.name }}"
+#  with_items: "{{ td_agent.gcp.plugins }}"
+#  changed_when: False
+#  failed_when: False
+#  register: plugin_status
+
+- name: Install td-agents plugins
+  # environment:
+  #   http_proxy: "{{ td_agent.proxy_host }}"
+  #   https_proxy: "{{ td_agent.proxy_host }}"
+  gem:
+    executable: /usr/sbin/td-agent-gem
+    name:   '{{ item.name }}'
+    state:  present
+    user_install: no
+  with_items: "{{ td_agent.plugins.gcp }}"
+  # with_items:
+  #  - { name: 'fluent-plugin-bigquery' }
+  #  - { name: 'fluent-plugin-google-cloud' }
+  #  - { name: 'fluent-plugin-google-cloud-storage' }
+  #  - { name: 'fluent-plugin-gcloud-pubsub-custom' }
+
+- name: td-agent template copy
+  template: >
+    src=td-agent.conf
+    dest=/etc/td-agent/td-agent.conf
+    backup=yes
+  notify: restart td-agent
+
+- name: create temp directory use posision
+  file: >
+    path={{ td_agent.position_path }}
+    state=directory
+    owner=td-agent
+    group=td-agent
+    mode=755

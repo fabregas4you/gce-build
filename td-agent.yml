@@ -1,0 +1,9 @@
+---
+# compute-video-demo-ansible
+- name: Install td-agent and basic setup
+  hosts: gce_instances_ips
+  gather_facts: "{{ check_env | default(False) }}"
+  become: yes
+  become_method: sudo
+  roles:
+    - td-agent

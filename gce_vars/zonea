@@ -1,5 +1,5 @@
 ---
 # Variables defined for asia-east1-a
-names_zonea: myinstance1,myinstance3
+names_zonea: tdinstance1
 zonea: asia-east1-a
-lb_membersa: asia-east1-a/myinstance1,asia-east1-a/myinstance3
+lb_membersa: asia-east1-a/tdinstance1

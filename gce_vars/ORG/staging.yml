@@ -1,0 +1,21 @@
+## td agent
+td_agent:
+  proxy_host: "http://proxy-sby.hop.2iij.net:8080"
+  plugins:
+    gcp:
+      - { name: 'fluent-plugin-bigquery' }
+      - { name: 'fluent-plugin-google-cloud' }
+      - { name: 'fluent-plugin-google-cloud-storage' }
+      - { name: 'fluent-plugin-gcloud-pubsub-custom' }
+    aws:
+      - { name: 'fluent-plugin-kinesis' }
+      - { name: 'fluent-plugin-redshift' }
+      - { name: 'fluent-plugin-s3' }
+    azure:
+      - { name: 'fluent-plugin-elasticsearch' }
+      - { name: 'fluent-plugin-azurestorage' }
+      - { name: 'fluent-plugin-azureeventhubs' }
+  position_path: /var/log/td-agent/position
+  aggregator:
+    ipaddr: 172.29.1.15
+    port: 16000
